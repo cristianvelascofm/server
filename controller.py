@@ -1,6 +1,7 @@
 from django.db import connection
 from bd import get_connection
 
+import json
 
 def get_user():
     connection = get_connection()
@@ -8,10 +9,10 @@ def get_user():
     with connection.cursor() as cursor:
         cursor.execute("SELECT usrCedula,usrPrimerNombre,usrSegundoNombre,usrPrimerApellido,usrSegundoApellido,usrClave,usrEmail,usrNitEmpresa,usrRol,usrEstado FROM usuario")
         user = cursor.fetchall()
-        
-    print('AA: ',user)
+        ans = json.dumps(user)
+    print('AA: ',ans)
     connection.close()
-    return str(user)
+    return ans
 
 
 def add_user(cedula,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido,clave,email,nit_empresa,rol,estado):

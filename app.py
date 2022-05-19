@@ -19,7 +19,7 @@ app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}}) # Acepta dede todas las direcciones con el *
 
 
-machine_ip = '192.168.56.1'
+machine_ip = '192.168.130.79'
 json_data = ''
 
 
